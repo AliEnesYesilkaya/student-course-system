@@ -1,4 +1,4 @@
-from app.services.gpa_service import calculate_gpa
+from student_system.services.gpa_service import calculate_gpa
 
 
 def generate_transcript(student_name, courses):
