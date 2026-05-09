@@ -1,13 +1,14 @@
+#  kontenjan kontrolü
 def check_capacity(current_students, capacity):
 
     return current_students < capacity
 
-
+# alınabilecek maksimum ders saati
 def check_course_limit(current_course_count, max_courses=40):
 
     return current_course_count < max_courses
 
-
+# ilk alttan dersi al
 def check_failed_courses_priority(
         failed_courses,
         selected_courses
@@ -20,7 +21,7 @@ def check_failed_courses_priority(
 
     return True
 
-
+# her seçmeli grubundan bir seçmeli al
 def check_elective_group(
         selected_groups,
         new_group
@@ -28,7 +29,7 @@ def check_elective_group(
 
     return new_group not in selected_groups
 
-
+# seçmeli ve zorunlu derslerin kontenjanlarını ayır
 def get_course_capacity(course_type):
 
     if course_type == "mandatory":
@@ -39,7 +40,7 @@ def get_course_capacity(course_type):
 
     return 0
 
-
+# dersin daha önce geçilip geçilmediği
 def check_previous_completion(letter_grade, gpa):
 
     passed_grades = [
@@ -72,7 +73,7 @@ def check_previous_completion(letter_grade, gpa):
 
     return True
 
-
+# ön koşullu dersler
 def check_prerequisites(
         course_name,
         completed_courses,
@@ -116,7 +117,7 @@ def check_prerequisites(
 
     return True
 
-
+#kayıt olunabilir mi
 def can_student_enroll(
         current_students,
         course_type,
@@ -146,7 +147,7 @@ def can_student_enroll(
 
         return (
             "Kayıt başarısız: "
-            "40 ders limiti aşıldı."
+            "40 ders saati limiti aşıldı."
         )
 
     if not check_failed_courses_priority(
